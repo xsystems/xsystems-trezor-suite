@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DOCKER_BUILDKIT=1
+
+docker build --build-arg TREZOR_SUITE_VERSION=${DOCKER_TAG} \
+             --build-arg ORIGIN_HOSTNAME="xsystems.org" \
+             --build-arg BLOCKBOOK_BITCOIN_URL="https://blockbook.xsystems.org" \
+             --build-arg DISABLE_MONITORING="true" \
+             --build-arg DISABLE_ANALYTICS="true" \
+             --build-arg DISABLE_NEWS_FEED="true" \
+             --tag ${IMAGE_NAME} .
